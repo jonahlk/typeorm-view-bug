@@ -6,13 +6,8 @@
   "scripts": {
     "prestart": "npm run build",
     "start": "node -r ./tspaths ./build/src/index.js",
-    "start:dev": "nodemon -w src -e ts -r tsconfig-paths/register --exec ts-node ./src/index.ts",
-    "dev": "concurrently \"npm run tsoa:generate_\" \"npm run start:dev\"",
-    "prebuild": "rimraf ./build && npm run tsoa:generate",
-    "build": "tsc",
-    "tsoa:generate_": "nodemon -w src -w prisma -e ts _generate-tsoa.js",
-    "tsoa:generate": "node _generate-tsoa.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "concurrently -r -p none \"nodemon -q -w src -e ts _generate-tsoa.js\" \"nodemon -q -w src -e ts -r tsconfig-paths/register --exec ts-node ./src/app.ts\"",
+    "build": "tsc"
   },
   "_moduleAliases": {
     "@database": "./build/src/database/index.js",
@@ -28,6 +23,7 @@
     "@types/morgan": "^1.9.3",
     "@types/node": "^14.17.9",
     "@types/swagger-ui-express": "^4.1.2",
+    "@types/terminal-kit": "^1.28.4",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
     "child_process": "^1.0.2",
@@ -46,10 +42,11 @@
     "helmet": "^4.6.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "require-json5": "^1.1.0",
-    "sqlite3": "^5.0.2",
     "swagger-ui-express": "^4.1.6",
+    "terminal-kit": "^2.1.6",
     "tsconfig-paths": "^3.9.0",
     "tsoa": "^3.5.2",
     "typeorm": "^0.2.31"
