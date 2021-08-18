@@ -13,55 +13,46 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/api/server-status": {
+		"/api/demo-model/count": {
 			"get": {
-				"operationId": "GetServerStatus",
+				"operationId": "Count",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
-									"properties": {
-										"serverTime": {
-											"type": "string"
-										},
-										"status": {
-											"type": "string"
-										}
-									},
-									"required": [
-										"serverTime",
-										"status"
-									],
-									"type": "object"
+									"type": "number",
+									"format": "double"
 								}
 							}
 						}
 					}
 				},
 				"tags": [
-					"Server Status"
+					"Demo Model"
 				],
 				"security": [],
 				"parameters": []
 			}
 		},
-		"/api/server-status/routes": {
+		"/api/demo-model/test": {
 			"get": {
-				"operationId": "GetServerRoutes",
+				"operationId": "Test",
 				"responses": {
 					"200": {
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"type": "string"
+								}
 							}
 						}
 					}
 				},
 				"tags": [
-					"Server Status"
+					"Demo Model"
 				],
 				"security": [],
 				"parameters": []

@@ -1,6 +1,7 @@
 import {Connection, createConnection} from 'typeorm';
 import dotenv                         from 'dotenv';
 import {terminal}                     from 'terminal-kit';
+import {CustomNamingStrategy}         from './custom-naming-strategy';
 
 
 dotenv.config({});
@@ -14,6 +15,7 @@ class Database {
   }
 
   private connectToDB(): void {
+    console.log(__dirname);
     createConnection({
       type: 'postgres',
       host: process.env.DATABASE_HOST!,
@@ -21,16 +23,20 @@ class Database {
       username: process.env.DATABASE_USERNAME,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: [`${__dirname}/entity/*.ts`],
+      namingStrategy: new CustomNamingStrategy(),
+      entities: [`${__dirname}/entities/*.ts`],
       synchronize: false,
       logging: false,
     })
-      .then(_con => {
+      .then(async _con => {
         this.connection = _con;
         terminal.cyan(`[Database] - Connected to Database: ${process.env.DATABASE_NAME}\n`);
+        
       })
       .catch(console.error);
   }
 }
 
 export const db = new Database();
+
+

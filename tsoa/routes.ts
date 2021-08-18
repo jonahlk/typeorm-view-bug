@@ -3,7 +3,7 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { ServerStatusController } from './../src/app/server-status/server-status.router';
+import { DemoModelController } from './../src/app/demo-model/demo-model.controller';
 import * as express from 'express';
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -19,9 +19,9 @@ export function RegisterRoutes(app: express.Router) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-        app.get('/api/server-status',
+        app.get('/api/demo-model/count',
 
-            function ServerStatusController_getServerStatus(request: any, response: any, next: any) {
+            function DemoModelController_count(request: any, response: any, next: any) {
             const args = {
             };
 
@@ -34,16 +34,16 @@ export function RegisterRoutes(app: express.Router) {
                 return next(err);
             }
 
-            const controller = new ServerStatusController();
+            const controller = new DemoModelController();
 
 
-            const promise = controller.getServerStatus.apply(controller, validatedArgs as any);
+            const promise = controller.count.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/api/server-status/routes',
+        app.get('/api/demo-model/test',
 
-            function ServerStatusController_getServerRoutes(request: any, response: any, next: any) {
+            function DemoModelController_test(request: any, response: any, next: any) {
             const args = {
             };
 
@@ -56,10 +56,10 @@ export function RegisterRoutes(app: express.Router) {
                 return next(err);
             }
 
-            const controller = new ServerStatusController();
+            const controller = new DemoModelController();
 
 
-            const promise = controller.getServerRoutes.apply(controller, validatedArgs as any);
+            const promise = controller.test.apply(controller, validatedArgs as any);
             promiseHandler(controller, promise, response, undefined, next);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
