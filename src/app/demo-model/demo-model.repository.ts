@@ -1,6 +1,6 @@
-import {DemoModel}        from '../../database/entities/demo-model';
+import {DemoModel}        from './demo-model.entity';
 import {EntityRepository} from 'typeorm';
-import {BaseRepository}   from '../../database/entities/base/base-repository';
+import {BaseRepository}   from '../../database/base-repository';
 
 
 @EntityRepository(DemoModel)

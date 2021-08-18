@@ -24,14 +24,14 @@ class Database {
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       namingStrategy: new CustomNamingStrategy(),
-      entities: [`${__dirname}/entities/*.ts`],
+      entities: [`${__dirname}/../app/**/*.entity.ts`],
       synchronize: false,
       logging: false,
     })
-      .then(async _con => {
+      .then(_con => {
         this.connection = _con;
         terminal.cyan(`[Database] - Connected to Database: ${process.env.DATABASE_NAME}\n`);
-        
+
       })
       .catch(console.error);
   }

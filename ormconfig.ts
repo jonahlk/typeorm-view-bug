@@ -13,7 +13,7 @@ module.exports = {
   entities: Entities,
   namingStrategy: new CustomNamingStrategy(),
   migrations: [
-    'src/database/migrations/*.ts',
+    'src/app/**/*.entity.ts',
   ],
   cli: {
     migrationsDir: 'src/database/migrations',
