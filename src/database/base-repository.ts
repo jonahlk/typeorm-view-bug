@@ -5,7 +5,7 @@ interface Filter<Entity> {
   fields?: string | Object | Array<string>,
   include?: string | Object | Array<string>,
   limit?: number,
-  order?: { [P in keyof Entity]?: 'ASC' | 'DESC' },
+  order?: { [Key in keyof Entity]?: 'ASC' | 'DESC' },
   where?: Partial<Entity>
 }
 
